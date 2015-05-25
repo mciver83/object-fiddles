@@ -251,6 +251,64 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 
 
 
+// Create a function called MakePerson which takes in name, birthday, ssn as its parameters and returns a new object with all of the information that you passed in.
+
+  var MakePerson = function(name, birthday, ssn){
+    return {
+      name: name,
+      birthday: birthday,
+      ssn: ssn
+    }
+  }
+
+var mark = MakePerson('Mark', '3/17/83', 234567890);
+
+
+//NEXT PROBLEM
+
+
+
+// Create a function called MakeCard which takes in all the data it needs to make a Credit Card object and returns that object so that whenever you invoke MakeCard, you get a brand new credit card.
+
+  var MakeCard = function(name, cardNum, exp){
+    return {
+      name: name,
+      cardNum: cardNum,
+      exp: exp
+    }
+  }
+
+  var creditCard = MakeCard('Mark', 23423534234, '3/17/17');
+  
+  
+  
+//NEXT PROBLEM
+
+
+
+/* As of this point you should have a MakePerson and a MakeCard function which returns you either a person or a credit card object.
+   Now, create a bindCard function that takes in a person object as its first parameter and a creditcard object as its second parameter.
+   Have bindCard merge the two parameters together into a new object which contains all the properties from the person as well as the creditcard.
+*/
+
+  var bindCard = function(person, creditcard){
+    var personalInfo = {};
+    for(var key in person){
+      personalInfo[key] = person[key];
+    }
+    for(var key in creditcard){
+      personalInfo[key] = creditcard[key];
+    }
+    return personalInfo;
+  }
+
+  bindCard(mark, creditCard);
+
+
+  //the following are old problems
+
+
+
 
 var devMountainEmployees = [];
 
@@ -335,7 +393,7 @@ of Data is to have an Array full of objects. */
 
 //Create an empty array called users.
 
-  //Code Here
+  var users = [];
 
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
@@ -347,8 +405,20 @@ var user1 = {
     password: 'iLoveJavaScript',
     username: 'infiniateLoop'
 }
+var user2 = {
+    name: 'Mark McIver',
+    email: 'markmicver83@gmail.com',
+    password: 'iLoveJavaScript',
+    username: 'mciver83'
+}
+var user3 = {
+    name: 'Alex Valderas',
+    email: 'alexvalderas@gmail.com',
+    password: 'iLoveJavaScript',
+    username: 'whatsup'
+}
 
-//Your Code Here
+users.push(user1, user2, user3);
 
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
@@ -358,7 +428,11 @@ and those objects contain properties about the specific person you follow.*/
 objects until you find Tyler's account (use tylermcginnis33@gmail.com to find him).
 Once you find the particular indice he's located in, delete him from the array.*/
 
-  //Code Here
+  for(var i = 0; i < users.length; i++){
+    if(users[i].email === 'tylermcginnis33@gmail.com'){
+      users.splice(i,1);
+    }
+  }
 
 //The activity we just did is very much how data works in 'the real world'.
 
